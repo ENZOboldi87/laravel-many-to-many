@@ -97,9 +97,20 @@ class CarController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Car $car)
     {
-        //
+        $data = $request->all();
+
+        if (isset($data['tags'])) {
+          $car->tags()->sync($data['tags']);
+        }
+        else {
+          $car->tags()->detach();
+        }
+
+        $car->update($data);
+
+        return redirect()->route('cars.show', $car);
     }
 
     /**
