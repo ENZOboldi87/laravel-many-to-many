@@ -1,4 +1,6 @@
-<h1>Add auto</h1>
+@extends('layouts.layouts')
+@section('content')
+  <h1>Add auto</h1>
 {{-- Validazione form --}}
 @if ($errors->any())
   <div class="alert alert-danger">
@@ -52,3 +54,4 @@
   <br>
   <input type="submit" name="" value="save">
 </form>
+@endsection

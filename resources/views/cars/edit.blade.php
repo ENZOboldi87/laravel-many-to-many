@@ -1,4 +1,6 @@
-<h1>sono su edit</h1>
+@extends('layouts.layouts')
+@section('content')
+	<h1>sono su edit</h1>
 
 @if ($errors->any())
 	<div class="alert alert-danger">
@@ -39,3 +41,4 @@
     @endforeach
   </div>
 </form>
+@endsection

@@ -1,3 +1,5 @@
+@extends('layouts.layouts')
+@section('content')
 <h1>Dettagli Auto</h1>
 
 <h2> {{ $car->manifacturer}} {{ $car->engine }}</h2>
@@ -20,3 +22,4 @@
   <i>{{ $car->user->email}}</i>
 </p>
 <a href="{{ route('cars.index')}}">go back</a>
+@endsection
