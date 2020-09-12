@@ -108,9 +108,12 @@ class CarController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Car $car)
     {
-        //
+        $car->tags()->detach();
+        $car->delete();
+
+        return redirect()->route('cars.index');
     }
 
     public function validationData() {

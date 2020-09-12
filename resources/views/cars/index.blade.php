@@ -17,9 +17,17 @@
       <div class="col-lg-12">
         @foreach ($cars as $car)
           <div>
-            <a href="{{ route('cars.show', $car)}}">{{$car->manifacturer}} {{ $car->engine}}
+            <a href="{{ route('cars.show', $car)}}"><h3>{{$car->manifacturer}} {{ $car->engine}}</h3>
             </a>
             <a class="btn btn-primary" href="{{route('cars.edit', $car)}}">edit</a>
+            <div>
+      				<form action="{{ route('cars.destroy', $car) }}" method="post">
+      					@csrf
+      					@method('DELETE')
+
+      					<input type="submit" value="Delete Car">
+      				</form>
+      			</div>
           </div>
         @endforeach
       </div>
